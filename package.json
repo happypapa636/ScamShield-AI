@@ -1,0 +1,30 @@
+{
+  "name": "scamshield-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@terminal3/t3n-sdk": "^3.9.0",
+    "lucide-react": "^0.454.0",
+    "mongodb": "^7.0.0",
+    "next": "^16.2.9",
+    "react": "^19",
+    "react-dom": "^19",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.9",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "playwright": "^1.61.0",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.1.9",
+    "typescript": "^5"
+  }
+}
