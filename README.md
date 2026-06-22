@@ -1,4 +1,4 @@
-# ScamShield AI Frontend
+# ScamShield AI  
 
 ScamShield AI is a web app that helps users check suspicious links, scam messages, QR/UPI payment requests, screenshots, emails, and uploaded evidence before they click, pay, reply, or share sensitive information.
 
