@@ -95,7 +95,7 @@ function StatRail({ label, value, tone }: { label: string; value: string; tone?:
 }
 
 function Terminal3Status({ proof }: { proof?: Terminal3Proof }) {
-  const label = proof?.status === "verified" ? "T3N VERIFIED" : proof?.status === "error" ? "T3N ERROR" : "LOCAL DEMO";
+  const label = proof?.identityMatches === false ? "T3N MISMATCH" : proof?.status === "verified" ? "T3N VERIFIED" : proof?.status === "error" ? "T3N ERROR" : "LOCAL DEMO";
   const color = proof?.status === "verified" ? "text-[#22c55e]" : proof?.status === "error" ? "text-[#ef4444]" : "text-[#f59e0b]";
 
   return (
@@ -269,8 +269,10 @@ function DashboardView({ scans, proof }: { scans: ScanResult[]; proof?: Terminal
           <div className="grid grid-cols-[44px_1fr] border-b border-[#1e1e1e]">
             <div className="border-r border-[#1e1e1e] p-4"><Database className="h-4 w-4 text-[#2196f3]" /></div>
             <div className="p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5a5a5a]">Token usage probe</div>
-              <div className="mt-2 break-all font-mono text-xs text-[#f2ede6]">{proof?.usageBalance || "pending"}</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5a5a5a]">Identity check</div>
+              <div className={cx("mt-2 break-all font-mono text-xs", proof?.identityMatches === false ? "text-[#ef4444]" : "text-[#f2ede6]")}>
+                {proof?.identityMatches === false ? "configured DID mismatch" : proof?.usageBalance || "pending"}
+              </div>
             </div>
           </div>
           <div className="p-5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#5a5a5a]">
@@ -437,11 +439,11 @@ function ScanView({ onScan, latest }: { onScan: (scan: ScanResult) => void; late
             const Icon = mode.icon;
             const selected = inputType === mode.value;
             return (
-                <button
-                  key={mode.value}
-                  type="button"
-                  aria-pressed={selected}
-                  onClick={() => setInputType(mode.value)}
+              <button
+                key={mode.value}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => setInputType(mode.value)}
                 className={cx(
                   "border-b border-r border-[#1e1e1e] p-4 text-left transition-colors",
                   selected ? "bg-[#0e0e0e] text-[#2196f3]" : "text-[#8a8a8a] hover:text-[#f2ede6]",

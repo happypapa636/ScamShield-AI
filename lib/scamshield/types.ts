@@ -16,6 +16,7 @@ export type Terminal3Proof = {
   environment: "testnet" | "production";
   did?: string;
   expectedDid?: string;
+  identityMatches?: boolean;
   address?: string;
   usageBalance?: number | string;
   latencyMs: number;

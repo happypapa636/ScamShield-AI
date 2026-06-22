@@ -27,7 +27,7 @@ ScamShield AI solves this by giving users a fast fraud-risk review before the ri
 - Produces a risk score, severity, category, explanation, and recommendation.
 - Provides a chat interface for quick "is this safe?" questions.
 - Stores history and audit logs per anonymous browser session.
-- Uses Terminal3 proof for protected server-side agent actions.
+- Uses Terminal3 proof for protected server-side agent actions and verifies the returned DID against the configured identity.
 - Redacts sensitive Terminal3 operational fields from client responses.
 
 ## Product Links
@@ -127,6 +127,7 @@ Create `frontend/.env.local` from `frontend/.env.local.example`.
 T3N_API_KEY=
 T3N_DID=
 T3N_ENVIRONMENT=testnet
+T3N_BASE_URL=
 MONGODB_URI=
 MONGODB_DB=scamshield_ai
 AUDIT_SIGNING_SECRET=
@@ -137,6 +138,8 @@ SCAMSHIELD_ALLOW_MEMORY_STORE=true
 Production notes:
 
 - Set `NEXT_PUBLIC_SITE_URL` to the deployed app URL.
+- Set `T3N_API_KEY`, `T3N_DID`, and `T3N_ENVIRONMENT`; the app treats a DID mismatch as an error even when SDK authentication succeeds.
+- Set `T3N_BASE_URL` only when Terminal3 gives you a dedicated node URL.
 - Configure `MONGODB_URI` and `MONGODB_DB`.
 - Set `AUDIT_SIGNING_SECRET` or `T3N_API_KEY`.
 - Leave `SCAMSHIELD_ALLOW_MEMORY_STORE` unset for real production persistence.
