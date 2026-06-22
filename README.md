@@ -169,9 +169,4 @@ npm run start
 - [`lib/scamshield/terminal3.ts`](./lib/scamshield/terminal3.ts) - Terminal3 SDK proof.
 - [`lib/scamshield/audit.ts`](./lib/scamshield/audit.ts) - HMAC audit signing.
 
-## Current Limitations
-
-- The fraud engine is deterministic and rule-based. It gives explainable safety guidance but does not replace a bank, platform, or law-enforcement verification path.
-- OCR quality depends on image clarity and browser support.
-- In-memory rate limiting is suitable for one runtime, but distributed production should use Redis, Valkey, or another shared rate-limit store.
-- The app uses anonymous sessions, not full user accounts.
+ 
