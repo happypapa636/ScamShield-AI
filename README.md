@@ -4,8 +4,7 @@ ScamShield AI is a web app that helps users check suspicious links, scam message
 
 Live app: [https://scamshield-ai-kohl.vercel.app](https://scamshield-ai-kohl.vercel.app)
 
-Local app: [http://127.0.0.1:3000](http://127.0.0.1:3000)
-
+ 
 ## The Problem
 
 Most scam attacks do not start with complex malware. They start with a link, a QR code, a fake bank/KYC message, a discount offer, a job promise, or a payment request that pressures the user to act quickly.
